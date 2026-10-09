@@ -1,19 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/lilies.css" />
-    <link rel="icon" href="./img/pink-lily.svg" type="image/svg+xml" />
-    <title>animationsss — Pink lilies</title>
-  </head>
-
-  <body class="container">
-    <div class="night" aria-hidden="true"></div>
-    <main aria-label="Three pink lilies blooming in a sparkling pink garden">
-    <div class="flowers">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#210f1b">
+  <meta name="description" content="A tiny pink universe with three flowers, three little secrets, and an unreasonable amount of love.">
+  <link rel="icon" href="./img/pink-lily.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/lilies.css">
+  <link rel="stylesheet" href="./css/universe.css">
+  <title>A little universe · animationsss</title>
+</head>
+<body class="container">
+  <div class="night" aria-hidden="true"></div>
+  <canvas id="stardust" aria-hidden="true"></canvas>
+  <header class="masthead">
+    <div class="wordmark"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 2 Q18 13 30 16 Q18 19 16 30 Q14 19 2 16 Q14 13 16 2Z" fill="currentColor"/><path d="M6 5L8 9M25 23L28 27" stroke="currentColor" stroke-width=".7"/></svg><span>IMPOSSIBLY LITTLE GIFTS</span></div>
+    <button type="button" id="restart" class="quiet-button">Start over <span aria-hidden="true">↻</span></button>
+  </header>
+  <main class="experience">
+    <section class="story" aria-label="A little universe for you">
+      <p class="eyebrow">NO. 001 / A POCKET UNIVERSE</p>
+      <h1 id="headline"><span>A little world.</span><span>A little magic.</span><em>All for you.</em></h1>
+      <p class="intro">I couldn’t give you the universe.<br>So I made you a smaller one.</p>
+      <div class="invitation"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 2 Q18 13 30 16 Q18 19 16 30 Q14 19 2 16 Q14 13 16 2Z" fill="currentColor"/><path d="M6 5L8 9M25 23L28 27" stroke="currentColor" stroke-width=".7"/></svg><span class="invitation-text">Touch the three stars. They’re keeping secrets.</span></div>
+      <div class="progress"><i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i><span id="count">0 / 3 little secrets</span></div>
+      <div class="secret">
+        <p class="secret-label">A NOTE FROM THIS UNIVERSE</p>
+        <h2 class="secret-title">Some things are worth finding.</h2>
+        <p class="secret-body">There are three little things I left in the sky for you.</p>
+      </div>
+    </section>
+    <section class="universe" aria-label="A miniature world of three pink lilies and three hidden notes">
+      <div class="world">
+        <div class="orbital-ring" aria-hidden="true"></div>
+        <div class="glass" aria-hidden="true"></div>
+        <div class="garden" role="img" aria-label="The original pink lilies, growing inside a little glass planet"><div class="flowers">
       <div class="flower flower--1">
         <div class="flower__leafs flower__leafs--1">
           <img class="lily-bloom" src="./img/pink-lily.svg" alt="" width="300" height="300" />
@@ -309,12 +331,18 @@
           <div class="leaf leaf--3"></div>
         </div>
       </div>
-    </div>
-    </main>
-    <footer class="flower-footer"><p>If I could, I’d give you a whole garden.</p><button type="button" id="replay">Bloom again <span aria-hidden="true">↻</span></button></footer>
-    <script src="./js/main.js"></script>
-
-
-
-  </body>
+    </div></div>
+        <div class="ground" aria-hidden="true"></div>
+        <svg class="heart-trace" viewBox="0 0 500 500" aria-hidden="true"><path pathLength="1000" d="M250 452 C205 419 18 280 25 152 C31 39 186 20 250 126 C314 20 469 39 475 152 C482 280 295 419 250 452"/></svg>
+        <button type="button" class="star star--1" aria-label="Open secret one: the pull" aria-pressed="false"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 2 Q18 13 30 16 Q18 19 16 30 Q14 19 2 16 Q14 13 16 2Z" fill="currentColor"/><path d="M6 5L8 9M25 23L28 27" stroke="currentColor" stroke-width=".7"/></svg><span class="star-label" aria-hidden="true">01</span></button>
+        <button type="button" class="star star--2" aria-label="Open secret two: the light" aria-pressed="false"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 2 Q18 13 30 16 Q18 19 16 30 Q14 19 2 16 Q14 13 16 2Z" fill="currentColor"/><path d="M6 5L8 9M25 23L28 27" stroke="currentColor" stroke-width=".7"/></svg><span class="star-label" aria-hidden="true">02</span></button>
+        <button type="button" class="star star--3" aria-label="Open secret three: the promise" aria-pressed="false"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 2 Q18 13 30 16 Q18 19 16 30 Q14 19 2 16 Q14 13 16 2Z" fill="currentColor"/><path d="M6 5L8 9M25 23L28 27" stroke="currentColor" stroke-width=".7"/></svg><span class="star-label" aria-hidden="true">03</span></button>
+        <p class="orbital-caption">A SMALL WORLD. AN UNREASONABLE AMOUNT OF LOVE.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="page-footer"><p>If I could give you a whole garden, I would. For now, a universe.</p><button type="button" class="magic-button" id="magic"><span aria-hidden="true">✧</span> A little more magic</button></footer>
+  <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+  <script src="./js/universe.js"></script>
+</body>
 </html>
