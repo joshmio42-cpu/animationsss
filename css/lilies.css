@@ -1,0 +1,28 @@
+/* Pink lily artwork layered onto the upstream growth and sway animation. */
+:root { --dark-color: #290d1e; color-scheme: dark; }
+body { min-height: 100svh; color: #ffd7e8; font-family: Georgia, 'Times New Roman', serif; }
+.night { background: radial-gradient(ellipse at 50% 65%, #8a305850, transparent 53%), radial-gradient(ellipse at 50% 0%, #5d2141, #290d1e 72%); }
+.night::after { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, #f6b1d1 1px, transparent 1.5px), radial-gradient(circle, #df8bb4 1px, transparent 1.5px); background-size: 109px 127px, 197px 173px; background-position: 37px 17px, 71px 93px; opacity: .28; }
+.flowers { position: absolute; left: 50%; bottom: 115px; transform: scale(.64); }
+.flower__leafs { z-index: 2; }
+.lily-bloom { position: absolute; width: 34vmin; height: 34vmin; max-width: none; left: 50%; top: 0; transform: translate(-50%, -50%); filter: drop-shadow(0 0 12px #f274ac55); }
+.flower--2 .lily-bloom { transform: translate(-50%, -50%) rotate(12deg) scale(.92); }
+.flower--3 .lily-bloom { transform: translate(-50%, -50%) rotate(-17deg) scale(.9); }
+.flower__leafs::after { background: #fb8bbb; }
+.flower__line__leaf { --w: 5vmin; --h: 13vmin; background-image: linear-gradient(to top, #8c285b88, #ef8cb5); }
+.dedication { position: absolute; z-index: 20; left: 20px; right: 20px; top: 6vh; text-align: center; pointer-events: none; }
+.dedication p { font: 9px/1.6 Arial, sans-serif; letter-spacing: .25em; color: #e4a3bf; margin-bottom: 13px; }
+.dedication h1 { font-size: clamp(34px, 4.5vw, 58px); line-height: 1.1; font-weight: 400; letter-spacing: -.035em; margin: 0 0 12px; }
+.dedication em { color: #efa4c4; font-weight: 400; }
+.dedication > span { font-size: 14px; color: #dfa7be; }
+.flower-footer { position: absolute; z-index: 30; bottom: 23px; left: 16px; right: 16px; text-align: center; }
+.flower-footer p { font-size: 15px; font-style: italic; margin-bottom: 13px; color: #eeb3cc; }
+.flower-footer button { font: 11px Arial, sans-serif; color: #f9c5dc; padding: 9px 16px; border: 1px solid #ce7aa05e; border-radius: 25px; background: #571d39; cursor: pointer; }
+.flower-footer button span { margin-left: 7px; }
+.flower-footer button:hover { background: #7a2b50; }
+.back-link { display: block; width: fit-content; margin: 11px auto 0; color: #d294b0; font: 10px Arial, sans-serif; text-underline-offset: 3px; }
+button:focus-visible, a:focus-visible { outline: 2px solid #ffd5e7; outline-offset: 4px; }
+@media (max-width: 600px) and (orientation: portrait) { .flowers { bottom: 21vh; transform: scale(1.05); } .dedication { top: 9vh; } .flower-footer { bottom: 5vh; } }
+@media (max-height: 540px) and (orientation: landscape) { .dedication { top: 15px; text-align: left; } .dedication h1 { font-size: 30px; } .dedication > span { font-size: 12px; } .flowers { bottom: 15px; } .flower-footer { left: auto; bottom: 18px; max-width: 170px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } .flower--1 { transform: rotate(0deg); } .flower--2 { transform: rotate(20deg); } .flower--3 { transform: rotate(-15deg); } .flower__light { display: none; } }
+
