@@ -17,6 +17,23 @@
   const noteBody = document.querySelector('.secret-body');
   const status = document.querySelector('#announcement');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  const stackedLayout = matchMedia('(max-width: 700px), (max-width: 1100px) and (orientation: portrait)');
+
+  // The unchanged flower CSS measures in vmin. Measure that unit explicitly:
+  // mobile browser toolbars can make it differ from window.innerHeight.
+  const world = document.querySelector('.world');
+  const ruler = document.querySelector('.garden-ruler');
+  function fitBouquet() {
+    const viewportUnit = ruler.getBoundingClientRect().width;
+    if (viewportUnit > 0) {
+      world.style.setProperty('--bouquet-scale', String(world.clientWidth * .76 / viewportUnit));
+    }
+  }
+  fitBouquet();
+  const bouquetObserver = new ResizeObserver(fitBouquet);
+  bouquetObserver.observe(world);
+  bouquetObserver.observe(ruler);
+  addEventListener('resize', fitBouquet);
 
   function showNote(heading, body, eyebrow) {
     label.textContent = eyebrow;
@@ -45,7 +62,7 @@
         document.querySelector('.orbital-caption').textContent = 'EVERY ORBIT LEADS BACK TO YOU';
         status.textContent += ' A whole universe. For you, twinsie/baby. You were the surprise all along.';
       }
-      if (matchMedia('(max-width: 700px)').matches) {
+      if (stackedLayout.matches) {
         note.scrollIntoView({block: 'nearest', behavior: reducedMotion.matches ? 'auto' : 'smooth'});
       }
     });

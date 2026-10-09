@@ -34,7 +34,9 @@ button:focus-visible, a:focus-visible { outline: 2px solid #ffe4ae; outline-offs
 .orbital-ring { position: absolute; width: 127%; height: 33%; left: -13.5%; top: 36%; border: 1px solid #d496b540; border-radius: 50%; transform: rotate(-28deg); pointer-events: none; z-index: -1; }
 .orbital-ring::before { content: ''; position: absolute; width: 105%; height: 110%; inset: -5% -2.5%; border: 1px solid #a767891b; border-radius: 50%; }
 .garden { position: absolute; inset: 0; overflow: hidden; border-radius: 50%; z-index: 1; pointer-events: none; }
-.flowers { left: 50%; bottom: 16%; transform: scale(.58); }
+.garden-ruler { position: absolute; width: 100vmin; height: 0; visibility: hidden; pointer-events: none; }
+/* Original flower geometry uses vmin; fit it to the globe, not the screen. */
+.world .flowers { left: 50%; bottom: 16%; transform: scale(var(--bouquet-scale, .35)); }
 .ground { position: absolute; width: 65%; height: 13%; left: 17.5%; bottom: 7%; border-radius: 50%; background: radial-gradient(ellipse, #d67da955, #73334f33 45%, transparent 72%); border-bottom: 1px solid #eeb8d328; filter: blur(.4px); z-index: 2; }
 .star { position: absolute; z-index: 8; width: 50px; height: 50px; padding: 12px; display: grid; place-items: center; color: #ffe1b1; border: 1px solid #e8c6ab25; border-radius: 50%; background: #341a2bed; box-shadow: 0 0 28px #ffe2b10b; cursor: pointer; transition: background .4s, box-shadow .4s, transform .4s; }
 .star svg { width: 22px; height: 22px; overflow: visible; filter: drop-shadow(0 0 5px #ffc7a54d); }
@@ -64,7 +66,6 @@ body.complete .glass { box-shadow: inset 0 0 80px #e88bbb16, 0 0 90px #f091ba16;
 .experience { overflow-x: clip; }
 @keyframes reveal-note { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes draw-heart { to { stroke-dashoffset: 0; } }
-@media (min-width: 1600px) { .flowers { transform: scale(.51); } }
 @media (min-width: 701px) and (max-height: 800px) {
   .masthead { padding-top: 19px; padding-bottom: 19px; }
   .experience { min-height: calc(100svh - 147px); padding-top: 6px; padding-bottom: 25px; }
@@ -78,23 +79,21 @@ body.complete .glass { box-shadow: inset 0 0 80px #e88bbb16, 0 0 90px #f091ba16;
   .secret-title { font-size: 21px; }
   .secret-body { font-size: 12px; }
   .world { width: min(45vw, 64svh, 610px); }
-  .flowers { transform: scale(.53); }
   .page-footer { padding-bottom: 19px; }
 }
-@media (max-width: 700px) {
+@media (max-width: 700px), (max-width: 1100px) and (orientation: portrait) {
   .masthead { padding: 23px 23px 10px; }
   .wordmark { font-size: 8px; letter-spacing: .17em; gap: 8px; }
   .quiet-button { font-size: 10px; }
-  .experience { display: flex; flex-direction: column; min-height: auto; padding: 28px 24px 10px; gap: 0; }
+  .experience { display: flex; flex-direction: column; min-height: auto; padding: 18px 24px 10px; gap: 0; }
   .story { display: contents; }
   .eyebrow { order: 0; align-self: center; margin-bottom: 15px; font-size: 8px; }
-  .story h1 { order: 1; font-size: clamp(40px, 11vw, 62px); text-align: center; margin-bottom: 15px; }
+  .story h1 { order: 1; max-width: 590px; font-size: clamp(32px, 8.7vw, 50px); text-align: center; margin-bottom: 13px; text-wrap: balance; }
   .story h1 span { display: inline; }
   .story h1 span::after { content: ' '; }
   .intro { order: 2; text-align: center; font-size: 13px; max-width: 270px; line-height: 1.65; }
-  .universe { order: 3; margin: 43px 0 58px; }
-  .world { width: min(79vw, 390px); }
-  .flowers { bottom: 16%; transform: scale(.65); }
+  .universe { order: 3; margin: 30px 0 48px; }
+  .world { width: min(78vw, 46svh, 430px); }
   .star { width: 44px; height: 44px; padding: 10px; }
   .star--1 { left: -3%; }
   .star--2 { right: -7%; }
@@ -106,5 +105,6 @@ body.complete .glass { box-shadow: inset 0 0 80px #e88bbb16, 0 0 90px #f091ba16;
   .page-footer p { font-size: 11px; }
   .magic-button { font-size: 10px; }
 }
-@media (min-width: 701px) and (max-height: 660px) { .experience { padding-top: 15px; } .story h1 { font-size: 55px; } .eyebrow { margin-bottom: 15px; } .invitation { margin-top: 18px; } .secret { margin-top: 20px; min-height: 115px; } .flowers { transform: scale(.53); } }
+@media (min-width: 701px) and (max-height: 660px) and (orientation: landscape) { .experience { padding-top: 15px; } .story h1 { font-size: clamp(34px, 4.8vw, 55px); } .eyebrow { margin-bottom: 15px; } .invitation { margin-top: 18px; } .secret { margin-top: 20px; min-height: 115px; } }
+@media (min-width: 701px) and (max-height: 500px) and (orientation: landscape) { .universe { align-self: start; padding-top: 10px; } }
 @media (prefers-reduced-motion: reduce) { .secret.reveal, body.complete .heart-trace path { animation: none; } body.complete .heart-trace path { stroke-dashoffset: 0; } *, *::before, *::after { transition: none !important; } }
