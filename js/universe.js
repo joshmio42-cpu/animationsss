@@ -39,11 +39,11 @@
       if (isNew) shower(found.size === 3 ? 30 : 9);
       if (found.size === 3 && !document.body.classList.contains('complete')) {
         document.body.classList.add('complete');
-        title.innerHTML = '<span>A whole universe.</span><em>Still, you.</em>';
+        title.innerHTML = '<span>A whole universe.</span><em>For you, twinsie.</em>';
         intro.textContent = 'All those stars. All those possibilities. And I’d still pick you, every single time.';
         document.querySelector('.invitation-text').textContent = 'You were the surprise all along.';
         document.querySelector('.orbital-caption').textContent = 'EVERY ORBIT LEADS BACK TO YOU';
-        status.textContent += ' A whole universe. Still, you. You were the surprise all along.';
+        status.textContent += ' A whole universe. For you, twinsie. You were the surprise all along.';
       }
       if (matchMedia('(max-width: 700px)').matches) {
         note.scrollIntoView({block: 'nearest', behavior: reducedMotion.matches ? 'auto' : 'smooth'});
